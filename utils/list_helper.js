@@ -28,10 +28,23 @@ const numberOfWriterBlogs = (blogs, author) => {
   }
 }
 
+const mostLikes = (blogs) => {
+  const favoriteBlogAuthor = favoriteBlog(blogs).author
+  const authorBlogs = remove(blogs, x => {
+    return  x.author === favoriteBlogAuthor
+  })
 
+  const numberOfLikes = totalLikes(authorBlogs)
+
+  return {
+    author: favoriteBlogAuthor,
+    likes: numberOfLikes
+  }
+}
 
 module.exports = {
   totalLikes,
   favoriteBlog,
-  numberOfWriterBlogs
+  numberOfWriterBlogs,
+  mostLikes
 }
