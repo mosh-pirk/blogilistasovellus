@@ -1,9 +1,10 @@
-const dummy = (blogs) => {
-  if (blogs.length === 0 ) return 1
+const totalLikes = (blogs) => {
+  return blogs.map(x => x.likes).reduce((x,y) => x+y)
+
 }
 
 
 
 module.exports = {
-  dummy
+  totalLikes
 }
