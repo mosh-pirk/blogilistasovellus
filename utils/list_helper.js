@@ -1,3 +1,4 @@
+const remove = require('lodash').remove
 const totalLikes = (blogs) => {
   return blogs.map(x => x.likes).reduce((x,y) => x+y)
 
@@ -16,9 +17,21 @@ const favoriteBlog = (blogs) => {
 
 }
 
+const numberOfWriterBlogs = (blogs, author) => {
+  const authorBlogs = remove(blogs, x => {
+    return  x.author === author
+  })
+
+  return {
+    author: author,
+    blogs: authorBlogs.length
+  }
+}
+
 
 
 module.exports = {
   totalLikes,
-  favoriteBlog
+  favoriteBlog,
+  numberOfWriterBlogs
 }
