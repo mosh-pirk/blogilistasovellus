@@ -55,4 +55,13 @@ describe('total likes', () => {
     const result = listHelper.totalLikes(blogs)
     expect(result).toBe(36)
   })
+  test('Return more liked blog', () => {
+    const result = listHelper.favoriteBlog(blogs)
+    console.log('MOHAMID', result)
+    expect(result).toEqual({
+      title: 'Canonical string reduction',
+      author: 'Edsger W. Dijkstra',
+      likes: 12
+    })
+  })
 })
